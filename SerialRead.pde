@@ -174,7 +174,29 @@ void acceptMessage() //Процедура приёма ответов
           print(int(inBuffer)+" ");
           inBuffer = serial.readChar();//Проверка успешности
           if (int(inBuffer) == 163) {
-            
+          inBuffer = serial.readChar(); //делитель скорости
+          print(inBuffer+" "); 
+          
+          inBuffer = serial.readChar(); //уровень модемного сигнала на стороне буромера
+          print(inBuffer+" ");  
+          
+          inBuffer = serial.readChar(); //число запусков буромера
+          print(inBuffer+" ");  
+          
+          inBuffer = serial.readChar(); //число ресет буромера по WartchDog 
+          print(inBuffer+" "); 
+          
+          inBuffer = serial.readChar(); //уровень модемного сигнала на стороне БуроPC
+          print(inBuffer+" "); 
+          
+          inBuffer = serial.readChar(); //Число запусков буроPC по питанию
+          print(inBuffer+" "); 
+          
+          inBuffer = serial.readChar(); // Число ресет буроPC по WatchDog
+          print(inBuffer+" "); 
+          
+          inBuffer = serial.readChar(); //Xor
+          print(inBuffer+" ");    
             
           }else
           {
@@ -190,7 +212,7 @@ void acceptMessage() //Процедура приёма ответов
           print(int(inBuffer)+" ");
           inBuffer = serial.readChar();//Проверка успешности
           if (int(inBuffer) == 164) {
-            inBuffer = serial.readChar();
+            inBuffer = serial.readChar();//Xor
             
           }else
           {
@@ -220,7 +242,7 @@ void acceptMessage() //Процедура приёма ответов
             print(Ftmp/10000 + " "); 
             
             
-           inBuffer = serial.readChar(); 
+           inBuffer = serial.readChar(); //Xor
           }else
           {
             println("Invalid data");
